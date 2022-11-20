@@ -1,40 +1,16 @@
 class Solution {
     public boolean halvesAreAlike(String s) {
+        String vowels = "aeiouAEIOU";
         char[] cArr=s.toCharArray();
         int len=cArr.length;
         int halfOne=0;
         int halfTwo=0;
         for(int i=0; i<len/2;i++){
-            switch(cArr[i]){
-                case 'a':
-                case 'e':
-                case 'i':
-                case 'o':
-                case 'u':
-                case 'A':
-                case 'E':
-                case 'I':
-                case 'O':
-                case 'U':
-                    halfOne++;
-                break;    
-            }
+            if(vowels.indexOf(cArr[i])!=-1)
+                halfOne++;
             
-            
-            switch(cArr[len-i-1]){
-                case 'a':
-                case 'e':
-                case 'i':
-                case 'o':
-                case 'u':
-                case 'A':
-                case 'E':
-                case 'I':
-                case 'O':
-                case 'U':
-                    halfTwo++;
-                break;
-            }
+            if(vowels.indexOf(cArr[len-i-1])!=-1)
+                halfTwo++;
             
         }
         return  halfOne==halfTwo;
